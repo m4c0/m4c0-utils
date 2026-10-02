@@ -44,7 +44,7 @@ static int run(char ** args) {
 #define RUN(...) do { char * args[] = { __VA_ARGS__, 0 }; if (run(args)) return 1; } while (0)
 
 int main() {
-  RUN("clang", "-Wall", "-g", "-c", "-o", "jpg2png.o", "-x", "c", "jpg2png.h", "-DJPG2PNG_IMPLEMENTATION", "-DJPG2PNG_STANDALONE");
-  RUN("clang", "-Wall", "-o", "jpg2png"EXT, "jpg2png.o");
+  RUN("clang", "-Wall", "-g", "-c", "-o", "img2png.o", "-x", "c", "img2png.h", "-DIMG2PNG_IMPLEMENTATION", "-DIMG2PNG_STANDALONE");
+  RUN("clang", "-Wall", "-o", "img2png"EXT, "img2png.o");
   return 0;
 }
