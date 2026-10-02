@@ -23,8 +23,12 @@ int main(int argc, char ** argv) {
 #include "stb_image_write.h"
 
 int img2png(const char * in_file, const char * out_file) {
-  // stbi_load_from_file(
-  return 1;
+  int x, y, n;
+  unsigned char * data = stbi_load(in_file, &x, &y, &n, 0);
+  if (!data) return 1;
+  if (!stbi_write_png(out_file, x, y, n, data, x * n)) return 2;
+  stbi_image_free(data);
+  return 0;
 }
 
 #endif
